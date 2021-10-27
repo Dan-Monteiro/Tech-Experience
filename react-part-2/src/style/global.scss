@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    background: black;
+    color: rgb(201, 195, 186);
+    padding: 5px
+}
+
+button {
+    margin: 10px;
+    border-radius: 10px;
+    background: whitesmoke;
+    cursor: pointer;
+    color: rgb(20, 20, 20);
+    min-width: 80px;
+    font-weight: bold;
+}
+
+button:disabled {
+    background: rgb(160, 158, 158);
+    border-color: rgb(160, 158, 158);
+    cursor: default;
+}
+
+hr {
+    padding: 0px;
+}
