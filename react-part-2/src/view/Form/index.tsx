@@ -1,13 +1,15 @@
 import Form from "../../components/Form";
 import { useSelector } from 'react-redux';
 import { IAllPersons, IPerson } from '../../store/modules/types';
+import Footer from "../../components/Footer";
 
 const FormView: React.FC = () => {
 
     const state = useSelector((state: IAllPersons) => state.persons); //Query All Persons
 
     return(
-        <div>
+        <>  
+            <h1 className="title">Form</h1>
             <Form />
             <br />
             <hr />
@@ -18,7 +20,8 @@ const FormView: React.FC = () => {
                     <span>Email: {person.email}</span>
                 </div>
             )) }
-        </div>
+            <Footer />
+        </>
     )
 }
 

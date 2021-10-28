@@ -4,7 +4,6 @@ import  Form from './view/Form';
 import { Home } from './view/Home';
 import RickAndMorty from './view/RickAndMorty';
 import { Nav } from './components/Nav';
-import Footer from './components/Footer';
 import Todo from './view/Todo';
 
 export const Routes: React.FC = () => {
@@ -17,7 +16,6 @@ export const Routes: React.FC = () => {
                 <Route path="/form" component={ Form } />
                 <Route path="/todo" component={ Todo } />
             </Switch>
-            <Footer />
         </BrowserRouter>
     )
 }

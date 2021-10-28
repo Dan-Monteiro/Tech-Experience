@@ -24,6 +24,9 @@ const TodoList: React.FC = () => {
           );
         })}
       </ul>
+      <p>
+        {(todos.length == 1 ? 'tarefa' : 'tarefas')}
+      </p>
     </div>
   ) : (
     <div>

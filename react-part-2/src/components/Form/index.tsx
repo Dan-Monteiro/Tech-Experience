@@ -17,8 +17,8 @@ const Form: React.FC = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="container-form">
+            <form className="col form" onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     placeholder="name"
@@ -29,9 +29,10 @@ const Form: React.FC = () => {
                     placeholder="Email"
                     required
                     onChange={e => setData({ ...data, email: e.target.value })} />
-                <input 
-                    type="submit" 
-                    value="Cadastrar" />
+                <button 
+                    type="submit">
+                    Cadastrar
+                </button>
             </form>
         </div>
     );

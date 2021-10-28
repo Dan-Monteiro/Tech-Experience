@@ -51,7 +51,7 @@ const RickAndMorty: React.FC = () => {
 
     return ( 
         <div>
-            <h1>Meet the mates from Rick and Morty</h1>
+            <h1 className="title">Meet the mates from Rick and Morty</h1>
             <div style={{flex:1, flexDirection: 'row', flexWrap: 'wrap', display: 'flex', float: 'left'}}>
                 { data.map( item => (
                     <div key={item.id} style={{display: 'flex', flexDirection: 'column'}} >
