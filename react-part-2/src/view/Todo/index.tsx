@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from '../../context/TodoContext';
 import AddTodo from '../../components/AddTodo';
 import TodoList from '../../components/TodoList';
 
@@ -6,9 +7,11 @@ const Todo: React.FC = () => {
   return (
       <div>
         <h3>ToDos</h3>
-        <AddTodo />
-        <hr />
-        <TodoList />
+        <Provider>
+          <AddTodo />
+          <hr />
+          <TodoList />
+        </Provider>
       </div>
   );
 }

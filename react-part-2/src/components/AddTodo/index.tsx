@@ -1,12 +1,26 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useContext, useRef } from 'react';
+import { Context as TodoContext } from '../../context/TodoContext';
+import { addTodo } from '../../actions/TodoActions';
 
 const AddTodo: React.FC = () => {
 
-    const [ todo, setTodo ] = useState<String>('');
+    const { dispatch } = useContext(TodoContext);
+    
+    const textInput = useRef<HTMLInputElement>(null);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(todo);
+        let value = textInput.current!.value;
+
+        if(value.trim() === '') {
+            return;
+        }
+
+        dispatch(addTodo({
+            id: new Date().getTime().toString(),
+            title: value,
+            active: true
+        }));
     }
 
     return (
@@ -14,9 +28,10 @@ const AddTodo: React.FC = () => {
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
-                    placeholder="Inform the todo..." 
-                    onChange={(e) => setTodo(e.target.value)}/>
-                <input type="submit" value="ADD"/>
+                    placeholder="Inform the todo..."
+                    required 
+                    ref={textInput} />
+                <button type="submit">ADD</button>
             </form>
         </div>
     );

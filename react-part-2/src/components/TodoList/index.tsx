@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../../context/TodoContext';
+import { removerTodo } from '../../actions/TodoActions';
 
 const TodoList: React.FC = () => {
 
-  const [todos, setTodos] = useState<string[]>([]);
+  const {
+    state: { todos },
+    dispatch
+  } = useContext(Context);
 
-  return (
+  const handleDelete = (id: string) => {
+    dispatch(removerTodo(id));
+  }
+
+  return todos.length > 0 ? (
     <div>
-        {todos.map((todo, index)=> {
-            return(
-                <p key={index}>{ todo }</p>
-            )
+      <ul>
+        {todos.map(({id, title}) => {
+          return(
+            <li key={id}>
+              { title } - <button onClick={() => handleDelete(id)}>remove</button>
+            </li>
+          );
         })}
+      </ul>
+    </div>
+  ) : (
+    <div>
+      <h5>Nada para fazer por enquanto!</h5>
     </div>
   );
 }

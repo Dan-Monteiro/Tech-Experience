@@ -1,21 +1,21 @@
 import React, { useReducer, createContext, useState } from 'react';
-import { ITodos } from '../interface';
+import { IContextModel, ITodos, ICounterAction } from '../interface';
 
 const defaultState: ITodos = {
     todos: []
 }
 
-const reducer = ( state: ITodos, action: any ) => {
+const reducer = ( state: ITodos, action: ICounterAction ) => {
     switch(action.type){
         case 'ADD_TODO':
             return {
                 ...state,
                 todos: [ ...state.todos, action.payload ]
             };
-        case 'REMOVE_TODO':
+        case 'DELETE_TODO':
             return {
                 ...state,
-                todos: state.todos.filter((item) => item !== action.payload )
+                todos: state.todos.filter((item) => item.id !== action.payload )
             };
         default:
             // Remove { }
@@ -23,7 +23,7 @@ const reducer = ( state: ITodos, action: any ) => {
     }
 }
 
-export const Context = createContext({});
+export const Context = createContext({} as IContextModel);
 
 export const Provider: React.FC = ( { children } ) => {
     const [ state, dispatch ] = useReducer(reducer, defaultState);

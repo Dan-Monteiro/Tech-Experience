@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     background: black;
     color: rgb(201, 195, 186);
     padding: 5px
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
 }
 
 button {
