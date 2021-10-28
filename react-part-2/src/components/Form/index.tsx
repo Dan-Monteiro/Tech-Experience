@@ -19,7 +19,8 @@ const Form: React.FC = () => {
     return (
         <div className="container-form">
             <form className="col form" onSubmit={handleSubmit}>
-                <input 
+                <input
+                    style={{marginBottom: 10}}
                     type="text" 
                     placeholder="name"
                     required
@@ -32,6 +33,10 @@ const Form: React.FC = () => {
                 <button 
                     type="submit">
                     Cadastrar
+                </button>
+                <button 
+                    type="reset">
+                    Limpar
                 </button>
             </form>
         </div>

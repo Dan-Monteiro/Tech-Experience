@@ -21,6 +21,8 @@ const AddTodo: React.FC = () => {
             title: value,
             active: true
         }));
+
+        textInput.current!.value = ''
     }
 
     return (
@@ -28,7 +30,7 @@ const AddTodo: React.FC = () => {
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
-                    placeholder="Inform the todo..."
+                    placeholder="Informe o todo..."
                     required 
                     ref={textInput} />
                 <button type="submit">ADD</button>
