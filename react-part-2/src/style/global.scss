@@ -24,20 +24,38 @@ button {
     font-weight: bold;
 }
 
+.rick-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rick-loader-ts {
+    width: 300px;
+    height: 320px;
+}
+
 .col {
     display: flex;
     flex-direction: column;
 }
 
-.container-form {
-    height: 200px;
-    width: 400px;
+.row {
+    display: flex;
+    flex-direction: row;
 }
 
-.form {
-    justify-content: space-between;
-    height: 70%;
+.container-form {
+
+    height: 200px;
+    width: 400px;
+
+    .form {
+        justify-content: space-between;
+        height: 70%;
+    }
 }
+
 
 button:disabled {
     background: rgb(160, 158, 158);
@@ -52,3 +70,26 @@ hr {
 .title {
     font-family: 'Irish Grover', cursive;
 }
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    & img { //sem o sinal > significa apenas um elemento
+        width: 100px;
+        height: auto;
+    }
+    .links {
+        & > a {
+            text-decoration: none;
+        }
+    }
+}
+
+/*
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+*/

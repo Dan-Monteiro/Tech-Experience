@@ -2,6 +2,9 @@ import React,
     { useState,
       useEffect } from "react";
 import api from '../../service/api';
+import Lottie, { useLottie } from 'lottie-react';
+//import RickDanceAnimation from '../../assets/animation/morty-dance-loader.json';
+import RickDance from "./Animated";
 
 interface IResults {
     id: number;
@@ -24,15 +27,18 @@ const RickAndMorty: React.FC = () => {
 
     const [ data, setData ] = useState<IResults[]>([]); //literals <> === literals
     const [ pages, setPages ] = useState(1);
-    const [ info, setInfo ] = useState<ICount>({} as ICount)
-    const [ isLoad, setIsLoad ] = useState(true)
-
+    const [ info, setInfo ] = useState<ICount>({} as ICount);
+    const [ isLoad, setIsLoad ] = useState(true);
+ 
     const handleIncrement = (page: number) => {
         setPages(pages + page);
         window.scrollTo(0, 0);
     }
 
     useEffect(() => {
+
+        setIsLoad(true);
+
         api.get<IResponseData>(`?page=${pages}`)
         .then(
             response => {
@@ -45,9 +51,24 @@ const RickAndMorty: React.FC = () => {
             alert(err.message)
         })
         .finally( () =>
+        setTimeout(() => {
             setIsLoad(false)
+        }, 2000)
+            
         )
     }, [pages]);
+
+    if(isLoad){
+        return(
+            <div className="col rick-loader">
+                <RickDance />
+                {/*<Lottie
+                    animationData={RickDanceAnimation}
+                style={{width: 300, height: 280}} />*/}
+                <p className="title">arrumando a casa...</p>
+            </div>
+        )
+    }
 
     return ( 
         <div>
